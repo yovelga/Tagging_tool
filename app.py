@@ -2,8 +2,11 @@ import os
 import cv2
 import streamlit as st
 
+
+
 # Directory containing images (you can replace this with your actual directory)
-image_dir = r"C:\Users\yovelg\Desktop\images4example"
+current_dir = os.path.dirname(__file__)
+image_dir = os.path.join(current_dir,"images")
 image_files = [
     os.path.join(image_dir, f)
     for f in os.listdir(image_dir)
@@ -14,19 +17,6 @@ image_files = [
 if "current_image_index" not in st.session_state:
     st.session_state.current_image_index = 0
 
-# # Navigation buttons
-# col1, col2, col3,col4,col5 = st.columns([1,1,3,1,1])
-# with col1:
-#     if st.button("Previous"):
-#         st.session_state.current_image_index = max(0, st.session_state.current_image_index - 1)
-# with col3:
-#     if st.button("Next"):
-#         st.session_state.current_image_index = min(len(image_files) - 1, st.session_state.current_image_index + 1)
-#
-# # Separator for spacing
-# st.write("---")
-
-# Display the images in a single row
 if image_files:
     current_image_path = image_files[st.session_state.current_image_index]
     image = cv2.imread(current_image_path)
@@ -62,7 +52,7 @@ else:
 st.write("---")
 
 # Navigation buttons
-col1, col2, col3,col4,col5 = st.columns([1,1,5,5,5])
+col1, col2, col3,col4,col5 = st.columns([3,3,5,5,5])
 with col1:
     if st.button("Next"):
         st.session_state.current_image_index = min(len(image_files) - 1, st.session_state.current_image_index + 1)
