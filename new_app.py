@@ -33,10 +33,8 @@ else:
         st.header("Navigation")
         if st.button("Next Image"):
             next_image()
-            data = load_current_json()
         if st.button("Previous Image"):
             prev_image()
-            data = load_current_json()
         if st.button("Next Detection"):
             next_detection()
         if st.button("Previous Detection"):
