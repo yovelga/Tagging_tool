@@ -7,7 +7,8 @@ import numpy as np
 import base64
 
 # Directory containing JSON files
-json_dir = r"C:\Users\yovelg\Desktop\VS_projects\git_projects\tagging_tool\ObjectJSONizer\JSONs"
+home_dir = os.path.dirname(os.getcwd())
+json_dir = os.path.join(home_dir, "ObjectJSONizer", "JSONs")
 
 # Global variables for navigation
 json_files = []
